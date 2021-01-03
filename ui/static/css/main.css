@@ -1,0 +1,176 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+@font-face {
+  font-family: DoulosSIL;
+  src: url("../fonts/DoulosSIL-R.woff");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #e9ebee;
+  font-family: DoulosSIL, serif;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: #008176;
+}
+
+.header-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input[type="search"] {
+  padding: .4em .5em;
+}
+
+/* Hamburger navigation */
+.hamburger-icon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  left: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: "";
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after,
+.hamburger-icon__center {
+  position: absolute;
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 0.5626em;
+}
+
+.hamburger-icon::before {
+  top: 5px;
+}
+
+.hamburger-icon__center {
+  top: 13px;
+}
+
+.hamburger-icon::after {
+  top: 21px;
+}
+/* Hamburger navigation end */
+
+.menu-container {
+  height: 0;
+  overflow: hidden;
+}
+
+.nav-menu {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 50px;
+}
+
+.nav-menu > li + li {
+  border-top: 1px solid #ccc;
+}
+
+.nav-menu > li > a {
+  display: block;
+  color: #fff;
+  padding: 0.4em .6em;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.spacer {
+  margin-top: 100px;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card {
+  font-size: 1.1rem;
+  padding: .5em;
+  margin: .8em 0;
+  background: #fff;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0px 0px -16px rgba(0, 0, 0, 0.1);
+}
+
+.card .options {
+  margin: 1.5em 0 .6em;
+  border-top: 1px solid #dadde1;
+}
+
+.card .options > p {
+  margin: 8px 0;
+}
+
+.notification {
+  max-width: 800px;
+  margin: 12px auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+  padding: .2em;
+  text-align: center;
+}
+
+.notification > p {
+  font-size: 1.1rem;
+}
+
+/* Desktop */
+@media screen and (min-width: 50em) {
+  .hamburger-icon {
+    display: none;
+  }
+
+  .menu-container {
+    position: initial;
+    height: auto;
+    width: auto;
+    overflow: hidden;
+  }
+
+  .nav-menu {
+    margin: 0;
+    display: flex;
+    position: static;
+    justify-content: center;
+  }
+
+  .nav-menu > li {
+    margin-left: .5em;
+  }
+
+  .nav-menu > li + li {
+    border-top: initial;
+  }
+}

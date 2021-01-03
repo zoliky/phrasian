@@ -1,0 +1,10 @@
+#+TITLE: Phrasian
+#+AUTHOR: Zoltán Király
+#+EMAIL: zoliky@gmail.com
+#+DATE: <2021-01-03 Sun>
+
+** Project Structure and Organization
+
+- The *cmd* directory contains application-specific code.
+- The *pkg* directory contains reusable code such as validation helpers and SQL database models.
+- The *ui* directory contains user-interface assets.

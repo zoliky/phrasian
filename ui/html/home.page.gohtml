@@ -1,0 +1,33 @@
+{{ template "base" . }}
+
+{{ define "title" }}Home{{ end }}
+
+{{ define "body" }}
+  {{ if .Phrases }}
+    <div class="card-container">
+      {{ range .Phrases }}
+        <div class="card">
+          <div class="phrase">
+            <p>{{ .Phrase }}</p>
+          </div> <!-- .phrase -->
+          {{ if .Translation.Valid }}
+            <div class="translation">
+              <p>{{ .Translation.Value }}</p>
+            </div> <!-- .translation -->
+          {{ end }}
+          {{ if .Pronunciation.Valid }}
+            <div class="pronunciation">
+              <p>{{ .Pronunciation.Value }}</p>
+            </div> <!-- .pronunciation -->
+          {{ end }}
+          <div class="options">
+            <p>
+              <a href="/phrase/edit?id={{ .ID }}">Edit</a> |
+              <a href="/phrase/delete?id={{ .ID }}">Delete</a>
+            </p>
+          </div> <!-- .options -->
+        </div> <!-- .card -->
+      {{ end }}
+    </div> <!-- .card-container -->
+  {{ end }}
+{{ end }}

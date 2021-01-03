@@ -1,0 +1,54 @@
+{{ template "base" . }}
+
+{{ define "title" }}Edit{{ end }}
+
+{{ define "body" }}
+  <div class="grid-container">
+    <form class="mainform" action="" method="POST">
+      <div>
+        <label for="phrase">Phrase:</label>
+        <input type="text" name="phrase" id="phrase" autocomplete="off" class="textinput" value="{{ .Phrase.Phrase }}">
+{{/*        {{ with .Errors.Phrase }}*/}}
+{{/*          <p class="error-message">{{ . }}</p>*/}}
+{{/*        {{ end }}*/}}
+      </div>
+      <div>
+        <label for="translation">Translation:</label>
+        <input type="text" name="translation" autocomplete="off" id="translation" class="textinput" value="{{ .Phrase.Translation.String }}" spellcheck="false">
+      </div>
+      <div>
+        <label for="pronunciation">Pronunciation:</label>
+        <input type="text" name="pronunciation" autocomplete="off" autocapitalize="off" id="pronunciation" class="textinput" value="{{ .Phrase.Pronunciation.String }}" spellcheck="false">
+      </div>
+      <div>
+        <label for="keyboard">Keyboard:</label>
+        <div class="keyboard-container">
+          <button class="button button1">ə</button>
+          <button class="button button2">ʌ</button>
+          <button class="button button3">ɪ</button>
+          <button class="button button4">ʊ</button>
+          <button class="button button5">ɛ</button>
+          <button class="button button6">ɜ</button>
+          <button class="button button7">ɔ</button>
+          <button class="button button8">æ</button>
+          <button class="button button9">ɑ</button>
+          <button class="button button10">θ</button>
+          <button class="button button11">ð</button>
+          <button class="button button12">ʃ</button>
+          <button class="button button13">ʒ</button>
+          <button class="button button14">ʧ</button>
+          <button class="button button15">ʤ</button>
+          <button class="button button16">ŋ</button>
+          <button class="button button17">ð</button>
+          <button class="button button18">ˈ</button>
+          <button class="button button19">ˌ</button>
+          <button class="button button20">‿</button>
+        </div>
+      </div>
+      <div class="buttons">
+        <input type="hidden" name="ID" value="">
+        <input type="submit" value="Update">
+      </div>
+    </form>
+  </div>
+{{ end }}

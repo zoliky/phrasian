@@ -1,0 +1,29 @@
+{{ template "base" . }}
+
+{{ define "title" }}Trash{{ end }}
+
+{{ define "body" }}
+  {{ if .Phrases }}
+    <div class="card-container">
+      <div class="notification">
+        <p>Messsages that have been in Trash more than 30 days
+        will be automatically deleted.</p>
+        <a href="/trash/empty">Empty Trash Now</a><br><br>
+      </div>
+      {{ range .Phrases }}
+        <div class="card">
+          <p>{{ .Phrase }}</p>
+          {{ if .Translation.Valid }}<p>{{ .Translation.Value }}</p>{{ end }}
+          {{ if .Pronunciation.Valid }}<p>{{ .Pronunciation.Value }}</p>{{ end }}
+          <div class="options">
+            <p><a href="/trash/restore?id={{ .ID }}">Restore</a> | <a href="/{{ .ID }}">Delete Forever</a></p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="notification">
+      <p>Trash is empty.</p>
+    </div>
+  {{ end }}
+{{ end }}

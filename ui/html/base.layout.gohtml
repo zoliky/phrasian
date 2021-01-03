@@ -1,0 +1,49 @@
+{{ define "base" }}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../static/css/normalize.css">
+  <link rel="stylesheet" href="../static/css/main.css">
+  <title>{{ template "title" . }}</title>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="search">
+        <form action="/search" method="GET" class="searchform">
+          <input type="search" name="q" placeholder="Search">
+        </form>
+      </div> <!-- .search -->
+
+      <nav class="nav">
+        <div class="hamburger-icon">
+          <span class="hamburger-icon__center"></span>
+        </div>
+
+        <div class="menu-container">
+          <span class="close-icon"></span>
+          <ul class="nav-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/phrase/add">Add</a></li>
+            <li><a href="/trash">Trash</a></li>
+            <li><a href="/logout">Log Out</a></li>
+          </ul>
+        </div> <!-- .menu-container -->
+      </nav> <!-- .nav -->
+    </div> <!-- .header-container -->
+  </header> <!-- .header -->
+
+  <div class="spacer"></div>
+
+  <div class="main">
+    {{ template "body" . }}
+  </div>
+
+  <script src="../static/js/main.js"></script>
+</body>
+</html>
+{{ end }}
